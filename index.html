@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+	<head>
+		<meta charset="utf-8">
+		<title>Counting calorie</title>
+		<script type='text/javascript' src="./scripts/calculator.js"></script>
+		<script type='text/javascript' src="./scripts/calculator-test.js"></script>
+		<script type='text/javascript' src="./scripts/calculator-ui-wrapper.js"></script>
+		<link rel="stylesheet" type="text/css" href="./css/main.css"></link>
+	</head>
+	<body>
+		<script type="text/javascript">
+			document.addEventListener("DOMContentLoaded", function(event) { 
+				objParam = {};
+				objParam.inputClassName = "changeable";
+				objParam.inputEnergyId = "energy";
+				objParam.inputLoseWeightId = "loseweigth";
+				objParam.inputFatPercentId = "fatpercent";
+				objParam.inputSexMaleId = "sex_male";
+				objParam.inputSexFemaleId = "sex_female";
+				objParam.inputAgeYoungId = "age_young";
+				objParam.inputAgeAverageId = "age_average";
+				objParam.inputAgeOldId = "age_old";
+				objParam.inputLifestyleSedentaryId = "lifestyle_sedentary";
+				objParam.inputLifestyleModerateId = "lifestyle_moderate";
+				objParam.inputLifestyleActiveId = "lifestyle_active";
+				objParam.divAllPercentId = "allpercent";
+				wrapper.init(objParam);
+			});
+		</script>
+		<div class="main-div">
+			<div class="own-div pointer-element">
+				<div class="common-div horizontal-element label-div">
+					Sex:
+				</div>
+				<div class="common-div horizontal-element">
+					<div class="pointer-element horizontal-element" inputid="sex_male" onclick="wrapper.onCheckDivClick(this);">
+						<input class="changeable pointer-element horizontal-element" id="sex_male" name="sex" type="radio" onchange="wrapper.onChange();">
+						<div class="pointer-element horizontal-element" inputid="sex_male" onclick="wrapper.onCheckDivClick(this);">Male</div>
+					</div>
+					<div class="pointer-element horizontal-element" inputid="sex_female" onclick="wrapper.onCheckDivClick(this);">
+						<input class="changeable pointer-element horizontal-element" id="sex_female" name="sex" type="radio" onchange="wrapper.onChange();">
+						<div class="pointer-element horizontal-element" inputid="sex_female" onclick="wrapper.onCheckDivClick(this);">Female</div>
+					</div>
+				</div>
+			</div>
+			<div class="breaker-div">
+			</div>
+			<div class="own-div pointer-element">
+				<div class="common-div horizontal-element label-div">
+					Age:
+				</div>
+				<div class="common-div horizontal-element">
+					<div class="pointer-element horizontal-element" inputid="age_young" onclick="wrapper.onCheckDivClick(this);">
+						<input class="changeable pointer-element" id="age_young" name="age" type="radio" onchange="wrapper.onChange();">
+						<div class="pointer-element horizontal-element">18-30</div>
+					</div>
+					<div class="pointer-element horizontal-element" inputid="age_average" onclick="wrapper.onCheckDivClick(this);">
+						<input class="changeable pointer-element horizontal-element" id="age_average" name="age" type="radio" onchange="wrapper.onChange();">
+						<div class="pointer-element horizontal-element">31-60</div>
+					</div>
+					<div class="pointer-element horizontal-element" inputid="age_old" onclick="wrapper.onCheckDivClick(this);">
+						<input class="changeable pointer-element horizontal-element" id="age_old" name="age" type="radio" onchange="wrapper.onChange();">
+						<div class="pointer-element horizontal-element">>60</div>
+					</div>
+				</div>
+			</div>
+			<div class="breaker-div">
+			</div>
+			<div class="own-div pointer-element">
+				<div class="common-div horizontal-element label-div">
+					Physical activity:
+				</div>
+				<div class="common-div horizontal-element">
+					<div class="pointer-element" inputid="lifestyle_sedentary" onclick="wrapper.onCheckDivClick(this);">
+						<input class="changeable pointer-element horizontal-element" id="lifestyle_sedentary" name="lifestyle" type="radio" onchange="wrapper.onChange();">
+						<div class="pointer-element horizontal-element">sedentary lifestyle</div>
+					</div>
+					<div class="pointer-element" inputid="lifestyle_moderate" onclick="wrapper.onCheckDivClick(this);">
+						<input class="changeable pointer-element horizontal-element" id="lifestyle_moderate" name="lifestyle" type="radio" onchange="wrapper.onChange();">
+						<div class="pointer-element horizontal-element">moderate physical activity</div>
+					</div>
+					<div class="pointer-element" inputid="lifestyle_active" onclick="wrapper.onCheckDivClick(this);">
+						<input class="changeable pointer-element horizontal-element" id="lifestyle_active" name="lifestyle" type="radio" onchange="wrapper.onChange();">
+						<div class="pointer-element horizontal-element">physical work or active sports</div>
+					</div>
+				</div>
+			</div>
+			<div class="breaker-div">
+			</div>
+			<div class="own-div pointer-element">
+				<div class="common-div horizontal-element label-div">
+					Weight:
+				</div>
+				<div class="common-div horizontal-element">
+					<input class="changeable" id="weight" name="weight" type="number" value="100" min="20" max="250" onchange="wrapper.onChange();" onkeypress="return wrapper.onWeightKeyPress();">
+				</div>
+			</div>
+			<div class="breaker-div">
+			</div>
+			<div class="own-div pointer-element">
+				<div class="common-div horizontal-element label-div">
+					Daily consumption of energy needed to maintain basic vital functions of the body:
+				</div>
+				<div class="common-div horizontal-element" id="energy">
+					0
+				</div>
+			</div>
+			<div class="breaker-div">
+			</div>
+			<div class="own-div pointer-element">
+				<div class="common-div horizontal-element label-div">
+					Daily caloric intake required for weight loss (80% of energy):
+				</div>
+				<div class="common-div horizontal-element" id="loseweigth">
+					0
+				</div>
+			</div>
+			<div class="breaker-div">
+			</div>
+			<div class="own-div pointer-element">
+				<div class="common-div horizontal-element label-div">
+					The daily requirement of fats (25% of total calories):
+				</div>
+				<div class="common-div horizontal-element" id="fatpercent">
+					0
+				</div>
+			</div>
+			<div class="breaker-div">
+			</div>
+			<div class="own-div pointer-element">
+				<div class="common-div horizontal-element label-div">
+					The distribution of caloric between meals:
+				</div>
+				<div class="common-div horizontal-element" id="allpercent">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

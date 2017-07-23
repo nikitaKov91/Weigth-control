@@ -1,0 +1,33 @@
+.common-div {
+	padding: 10px;
+	vertical-align: middle;
+}
+
+.label-div {
+	width:30%;
+	max-width: 350px;
+}
+
+.pointer-element {
+	cursor: pointer;
+}
+
+.horizontal-element {
+	display: inline-block;
+}
+
+.own-div:hover {
+	background: #0088cc;
+	color: #ffe;
+} 
+
+.breaker-div {
+	height: 2px;
+	width: 100%;
+	background: #0088cc;
+}
+
+.main-div {
+	width: 800px;
+	margin: 0 auto;
+}
